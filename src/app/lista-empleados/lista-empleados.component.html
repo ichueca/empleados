@@ -1,0 +1,15 @@
+<!-- <div class="row">
+  <app-empleado *ngFor="let empleado of empleados, let primero=first" class="col-4 mb-2"
+    [empleado]="empleado"
+    [ocultar]="(primero)?false:true">
+  </app-empleado>
+</div> -->
+
+<div class="row">
+  @for (empleado of empleados; track $index; let primero = $first) {
+    <app-empleado class="col-4 mb-2"    [empleado]="empleado"  [ocultar]="(primero)?false:true">
+    </app-empleado>
+  }@empty {
+    <div class="alert alert-info">No hay empleados</div>
+  }
+</div>

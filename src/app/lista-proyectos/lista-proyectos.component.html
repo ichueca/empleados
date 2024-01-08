@@ -1,0 +1,5 @@
+@if (this.proyectos.length) {
+  @for (proyecto of this.proyectos; track $index; let primero = $first) {
+    <app-proyecto [proyecto]="proyecto" [mostrarMiembros]="primero"></app-proyecto>
+  }
+}

@@ -1,0 +1,20 @@
+<h1>{{ empleado.apellido + ', ' + empleado.nombre }}</h1>
+<br>
+<div class="row">
+  <div class="col-2 text-center">
+    @if (!empleado.foto) {
+      <img class="card-img-left mx-auto mt-3 rounded-circle" style="width: 40%"
+      [src]="'https://upload.wikimedia.org/wikipedia/commons/f/f4/Nelson_Neves_picuture.gif'">
+    }@else {
+      <img  class="card-img-left mx-auto mt-3 rounded-circle" style="width: 40%" [src]="empleado.foto">
+    }
+    <br>
+    <a [routerLink]="['/empleados']" class="btn btn-primary btn-block mt-2">Volver</a>
+  </div>
+  <div class="col-10">
+    <span class='font-weight-bold'>id: </span>{{ empleado.id }}<br>
+    <span class='font-weight-bold'>Nombre : </span> {{ empleado.nombre }}<br>
+    <span class='font-weight-bold'>Apellidos : </span> {{ empleado.apellido }}<br>
+    <span class='font-weight-bold'>Departamento : </span> {{ empleado.departamento }}
+  </div>
+</div>

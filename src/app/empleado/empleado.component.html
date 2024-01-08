@@ -1,0 +1,28 @@
+<!-- <div class="card" style="width: 20em;">
+  <div class="card-body">
+    <img class="card-img-left mx-auto mt-3 rounded-circle" style="width: 40%"
+      *ngIf="!empleado.foto; else sifoto"
+      [src]="'https://upload.wikimedia.org/wikipedia/commons/f/f4/Nelson_Neves_picuture.gif'">
+    <ng-template #sifoto>
+      <img  class="card-img-left mx-auto mt-3 rounded-circle" style="width: 40%" [src]="empleado.foto">
+    </ng-template>
+    <h5 class="card-title text-center">{{empleado.nombreCompleto()}}</h5>
+    <p class="card-text text-center" [hidden]="ocultar">{{empleado.nombre.toLowerCase()}} trabaja en {{empleado.departamento}}.</p>
+    <button class='btn btn-primary' (click) = 'cambiarVisibilidad()'>{{(ocultar)?'Ver':'Ocultar'}}</button>
+  </div>
+</div> -->
+
+
+<div class="card" style="width: 20em;">
+  <div class="card-body">
+    @if (!empleado.foto) {
+      <img class="card-img-left mx-auto mt-3 rounded-circle" style="width: 40%"
+      [src]="'https://upload.wikimedia.org/wikipedia/commons/f/f4/Nelson_Neves_picuture.gif'">
+    }@else {
+      <img  class="card-img-left mx-auto mt-3 rounded-circle" style="width: 40%" [src]="empleado.foto">
+    }
+    <h5 class="card-title text-center">{{empleado.nombreCompleto()}}</h5>
+    <!--<a [routerLink]="[ '/empleados', empleado.id ]" class='btn btn-primary' >Ver más</a> -->
+    <button class='btn btn-primary' (click)="verMas()" >Ver más</button>
+  </div>
+</div>

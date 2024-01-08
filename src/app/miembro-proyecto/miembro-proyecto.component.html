@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-10">
+    @if (!empleado.foto) {
+      <img class="card-img-left mx-auto mt-3 rounded-circle" style="width: 50px;"
+      [src]="'https://upload.wikimedia.org/wikipedia/commons/f/f4/Nelson_Neves_picuture.gif'">
+    }@else {
+      <img  class="card-img-left mx-auto mt-3 rounded-circle" style="width: 50px;"
+        [src]="empleado.foto">
+    }
+     {{ empleado.nombreCompleto()}}
+  </div>
+  <div class="col-2">
+    <button class="btn btn-primary" (click)="quitarEmpleado()">Quitar Empleado</button>
+  </div>
+</div>

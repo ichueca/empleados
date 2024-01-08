@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-1">
+    @if (!proyecto.responsable.foto) {
+    <img
+      class="card-img-left mx-auto mt-3 rounded-circle"
+      style="width: 60px"
+      [src]="
+        'https://upload.wikimedia.org/wikipedia/commons/f/f4/Nelson_Neves_picuture.gif'
+      "
+    />
+    }@else {
+    <img
+      class="card-img-left mx-auto mt-3 rounded-circle"
+      style="width: 60px"
+      [src]="proyecto.responsable.foto"
+    />
+    }
+  </div>
+  <div class="col my-auto">
+    <h3>{{ proyecto.nombre }}</h3>
+  </div>
+
+  <div class="col-2" *ngIf="proyecto.miembros.length">
+    <button class="btn btn-primary" (click)="cambiarMostrarMiembros()">
+      {{ mostrarMiembros ? "Ocultar" : "Mostrar" }} Miembros
+    </button>
+  </div>
+</div>
+<div *ngIf="mostrarMiembros">
+  <div *ngIf="proyecto.miembros.length; else noMiembros">
+    <div *ngFor="let miembro of proyecto.miembros" class="row">
+      <div class="col-1"></div>
+      <div class="col-11">
+        <app-miembro-proyecto [empleado]="miembro" (empleadoQuitado)="quitarEmpleado($event)"></app-miembro-proyecto>
+      </div>
+    </div>
+  </div>
+  <ng-template #noMiembros>
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8">
+        <div class="alert alert-info">
+          No hay empleados asignados al proyecto
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>
