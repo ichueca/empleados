@@ -10,7 +10,8 @@
     "github:build":"ng build --base-href ./",
     "github:limpiar": "del /q docs",
     "github:mover": "move .\\dist\\my-app\\browser\\* .\\docs",
-    "github": "npm run github:build && npm run github:limpiar &&  npm run github:mover"
+    "github": "npm run github:build && npm run github:limpiar &&  npm run github:mover",
+    "repo": "git add . && git commit -m \"nuevo\" && git push"
   },
   "private": true,
   "dependencies": {
